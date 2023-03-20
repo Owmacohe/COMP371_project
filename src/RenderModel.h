@@ -4,6 +4,7 @@
 
 #include "RUIObject.h"
 #include <vector>
+#include <random>
 
 
 #include "ObjModel.h"
@@ -22,6 +23,11 @@ namespace TAPP {
         
         RenderModel(std::string filename)
         :RUIObject(){
+            Load(m_obj, filename.c_str());
+        }
+
+        RenderModel(std::string filename, std::string o, RenderModel *m)
+        :RUIObject(), operation(o), model(m){
             Load(m_obj, filename.c_str());
         }
         
@@ -78,6 +84,11 @@ namespace TAPP {
         
         virtual void render_pick_select(PickDataback& ) ; // to see if we selected this object
         virtual void render_pick_detail(PickDataback& ); // to see if we selected a certain primitive
+
+        std::string operation;
+        RenderModel *model;
+
+        bool is_point_inside(T3D::TPoint p, RenderModel *r);
 };
 
 

@@ -12,7 +12,7 @@ std::string global_path;
 
 int main(int argc, char* argv[]) {
     if (argc == 0) {
-        cout << "Usage: " << argv[0] << " objname.obj (as many objs as wanted)" << endl;
+        cout << "Usage: " << argv[0] << " objname.obj" << endl;
         return -1;
     }
     
@@ -30,32 +30,26 @@ int main(int argc, char* argv[]) {
     gapp.m_window.m_layers.push_back(view);
 
     string primitives[] = { "cube", "sphere", "monkey" };
-    RenderModel* lastModel;
-    string lastOperation = "";
 
-    RenderModel* models[2];
+    std::string model1_name = argv[1];
+    std::string model2_name = argv[3];
+    std::string operation = argv[2];
 
-    for (int i = 1; i < argc; i++) {
-        string argument = argv[i];
-
-        if (argument == "-" && lastModel != NULL) {
-            lastOperation = argument;
+    for (int j = 0; j < 3; j++) {
+        if (model1_name == primitives[j]) {
+            model1_name = "../assets/" + model1_name + ".obj";
         }
-        else if (argument != "-") {
-            for (int j = 0; j < 3; j++) {
-                if (argument == primitives[j]) {
-                    argument = "../assets/" + argument + ".obj";
-                    break;
-                }
-            }
 
-            RenderModel* sp1 = new RenderModel(argument);
-
-            view->m_objects.push_back(sp1);
-
-            lastModel = sp1;
+        if (model2_name == primitives[j]) {
+            model2_name = "../assets/" + model2_name + ".obj";
         }
     }
+
+    RenderModel* model2 = new RenderModel(model2_name);
+    RenderModel* model1 = new RenderModel(model1_name, operation, model2);
+
+    view->m_objects.push_back(model1);
+    //view->m_objects.push_back(model2);
 
     gapp.run();
     gapp.release();

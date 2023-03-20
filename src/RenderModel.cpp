@@ -46,6 +46,8 @@ namespace TAPP {
             cout<<"Error normal vs vertices! "<<m_obj.vertex.size()<<" "<<m_obj.normal.size()<<endl;
             return;
         }
+
+        vector<bool> gone;
         
         for(int i=0;i<m_obj.vertex.size();++i){
             for(int j=0;j<3;++j){
@@ -55,6 +57,13 @@ namespace TAPP {
                 normals.push_back(m_obj.normal[i][j]);
                // vertices[3*i+j] = m_obj.vertex[i][j];
                // normals[3*i+j] = m_obj.normal[i][j];
+            }
+
+            if (operation == "-") {
+                gone.push_back(is_point_inside(m_obj.vertex[i], model));
+            }
+            else {
+                gone.push_back(false);
             }
         }
         
@@ -68,9 +77,18 @@ namespace TAPP {
                 cout<<"Error: not a triangular mesh!"<<endl;
                 return;
             }
+
+            bool valid_face = true;
+
             for(int j=0;j<3;++j){
-                indices.push_back(m_obj.faces[i][j]);
-           //     indices[3*i+j] = m_obj.faces[i][j];
+                if (gone[m_obj.faces[i][j]]) valid_face = false;
+            }
+
+            if (valid_face) {
+                for(int k=0;k<3;++k){
+                    indices.push_back(m_obj.faces[i][k]);
+                    //     indices[3*i+k] = m_obj.faces[i][k];
+                }
             }
         }
         
@@ -352,5 +370,19 @@ void RenderModel::render(){
         }
 
     }// end of picking function
-    
+
+    bool RenderModel::is_point_inside(T3D::TPoint p, RenderModel *r) {
+        random_device rd;
+        mt19937 mt(rd());
+        uniform_real_distribution<double> dist(0, 1);
+
+        T3D::TVector dir = T3D::TVector(dist(mt), dist(mt), dist(mt));
+
+        // TODO: ray plane intersection
+        // TODO: find out if intersection is inside triangle
+        // TODO: do for all triangles
+        // TODO: odd = inside mesh, even = outside mesh
+
+        return false;
+    }
 }
