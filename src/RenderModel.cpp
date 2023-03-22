@@ -53,18 +53,27 @@ namespace TAPP {
             for(int j=0;j<3;++j){
 
 
-                vertices.push_back(m_obj.vertex[i][j]);
+                vertices.push_back(m_obj.vertex[i][j] * scale);
                 normals.push_back(m_obj.normal[i][j]);
                // vertices[3*i+j] = m_obj.vertex[i][j];
                // normals[3*i+j] = m_obj.normal[i][j];
             }
 
-            if (operation == "-") {
-                gone.push_back(is_point_inside(m_obj.vertex[i], model));
-            }
-            else {
-                gone.push_back(false);
-            }
+            /*is_point_inside(m_obj.vertex[i], model)*/
+
+            if (perform_operation) gone.push_back(remove_inside
+                ? ((primitive == "cube" &&
+                (m_obj.vertex[i][0] * scale < model_scale && m_obj.vertex[i][0] * scale > -model_scale) &&
+                (m_obj.vertex[i][1] * scale < model_scale && m_obj.vertex[i][1] * scale > -model_scale) &&
+                (m_obj.vertex[i][2] * scale < model_scale && m_obj.vertex[i][2] * scale > -model_scale)) ||
+                (primitive == "sphere" && (m_obj.vertex[i] * scale).norm() < model_scale))
+                : ((primitive == "cube" &&
+                (m_obj.vertex[i][0] * scale > model_scale || m_obj.vertex[i][0] * scale < -model_scale) ||
+                (m_obj.vertex[i][1] * scale > model_scale || m_obj.vertex[i][1] * scale < -model_scale) ||
+                (m_obj.vertex[i][2] * scale > model_scale || m_obj.vertex[i][2] * scale < -model_scale)) ||
+                (primitive == "sphere" && (m_obj.vertex[i] * scale).norm() > model_scale))
+            );
+            else gone.push_back(false);
         }
         
     //    cout<<"Mesh has: "<<vertices.size()/3<<": vertices!"<<endl;
@@ -80,9 +89,8 @@ namespace TAPP {
 
             bool valid_face = true;
 
-            for(int j=0;j<3;++j){
+            for(int j=0;j<3;++j)
                 if (gone[m_obj.faces[i][j]]) valid_face = false;
-            }
 
             if (valid_face) {
                 for(int k=0;k<3;++k){
@@ -254,7 +262,7 @@ void RenderModel::render(){
         
         
         glm::vec3 lightPos = glm::vec3(0,0,0);
-        glm::vec3 dc = glm::vec3(1, 0, 0);
+        glm::vec3 dc = glm::vec3(colour[0], colour[1], colour[2]);
         if(mode==0){
             glUniformMatrix4fv(shaderMVP, 1, GL_FALSE, &MVP[0][0]);
             glUniformMatrix4fv(shaderV, 1, GL_FALSE, &m_ViewMatrix[0][0]);
@@ -371,18 +379,51 @@ void RenderModel::render(){
 
     }// end of picking function
 
+    /*
+    bool RenderModel::is_on_right(T3D::TPoint check, T3D::TPoint p1, T3D::TPoint p2, T3D::TVector n) {
+        return dot(cross(p1 - p2, check - p2), n) > 0;
+    }
+
+    bool RenderModel::hit_triangle(T3D::TPoint check, T3D::TPoint p1, T3D::TPoint p2, T3D::TPoint p3, T3D::TVector n) {
+        bool ba = is_on_right(check, p2, p1, n);
+        bool cb = is_on_right(check, p3, p2, n);
+        bool ac = is_on_right(check, p1, p3, n);
+
+        return (ba == cb) && (cb == ac);
+    }
+
     bool RenderModel::is_point_inside(T3D::TPoint p, RenderModel *r) {
         random_device rd;
         mt19937 mt(rd());
         uniform_real_distribution<double> dist(0, 1);
 
-        T3D::TVector dir = T3D::TVector(dist(mt), dist(mt), dist(mt));
+        //T3D::TVector dir = T3D::TVector(dist(mt), dist(mt), dist(mt));
+        T3D::TVector dir = normalize((T3D::TPoint(0, 0, 0) - p));
 
-        // TODO: ray plane intersection
-        // TODO: find out if intersection is inside triangle
-        // TODO: do for all triangles
-        // TODO: odd = inside mesh, even = outside mesh
+        int hits = 0;
 
-        return false;
+        for (int i = 0; i < r->m_obj.faces.size(); ++i) {
+            vector<int> face = r->m_obj.faces[i];
+
+            T3D::TPoint poi = r->m_obj.vertex[face[0]]; // point on plane
+            T3D::TVector norm = r->m_obj.normal[i]; // normal of plane
+
+            float t = dot((poi - p), norm) / dot(dir, norm);
+            T3D::TPoint projection = p + dir * t;
+
+            // TODO: currently doesn't check for non-triangular meshes
+            if (hit_triangle(
+                projection,
+                r->m_obj.vertex[face[0]],
+                r->m_obj.vertex[face[1]],
+                r->m_obj.vertex[face[2]],
+                norm))
+                hits++;
+        }
+
+        cout << hits << endl;
+
+        return hits % 2 != 0;
     }
+    */
 }

@@ -8,7 +8,7 @@
 # =============================================================================
 
 # =============================================================================
-# Project: capsule03
+# Project: project
 # Configurations: Debug
 # =============================================================================
 
@@ -38,159 +38,159 @@ include CMakeFiles/rules.ninja
 
 cmake_ninja_workdir = /Users/ohellum/Documents/GitHub/COMP371_project/cmake-build-debug/
 # =============================================================================
-# Object build statements for EXECUTABLE target capsule03
+# Object build statements for EXECUTABLE target project
 
 
 #############################################
-# Order-only phony target for capsule03
+# Order-only phony target for project
 
-build cmake_object_order_depends_target_capsule03: phony || CMakeFiles/capsule03.dir
+build cmake_object_order_depends_target_project: phony || CMakeFiles/project.dir
 
-build CMakeFiles/capsule03.dir/src/GLUtils.cpp.o: CXX_COMPILER__capsule03_Debug /Users/ohellum/Documents/GitHub/COMP371_project/src/GLUtils.cpp || cmake_object_order_depends_target_capsule03
+build CMakeFiles/project.dir/src/GLUtils.cpp.o: CXX_COMPILER__project_Debug /Users/ohellum/Documents/GitHub/COMP371_project/src/GLUtils.cpp || cmake_object_order_depends_target_project
   DEFINES = -DGLEW_STATIC -DGLM_ENABLE_EXPERIMENTAL -DTW_NO_DIRECT3D -DTW_NO_LIB_PRAGMA -DTW_STATIC -DUSE_ZLIB_T -D_CRT_SECURE_NO_WARNINGS
-  DEP_FILE = CMakeFiles/capsule03.dir/src/GLUtils.cpp.o.d
+  DEP_FILE = CMakeFiles/project.dir/src/GLUtils.cpp.o.d
   FLAGS = -g -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.1.sdk -fcolor-diagnostics -F/Library/Developer/CommandLineTools/SDKs/MacOSX11.sdk/System/Library/Frameworks  -std=gnu++11
   INCLUDES = -I/encs/pkg/glm-0.9.9.8/root/include -iframework /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.1.sdk/System/Library/Frameworks -isystem /usr/local/include
-  OBJECT_DIR = CMakeFiles/capsule03.dir
-  OBJECT_FILE_DIR = CMakeFiles/capsule03.dir/src
+  OBJECT_DIR = CMakeFiles/project.dir
+  OBJECT_FILE_DIR = CMakeFiles/project.dir/src
 
-build CMakeFiles/capsule03.dir/src/ObjModel.cpp.o: CXX_COMPILER__capsule03_Debug /Users/ohellum/Documents/GitHub/COMP371_project/src/ObjModel.cpp || cmake_object_order_depends_target_capsule03
+build CMakeFiles/project.dir/src/ObjModel.cpp.o: CXX_COMPILER__project_Debug /Users/ohellum/Documents/GitHub/COMP371_project/src/ObjModel.cpp || cmake_object_order_depends_target_project
   DEFINES = -DGLEW_STATIC -DGLM_ENABLE_EXPERIMENTAL -DTW_NO_DIRECT3D -DTW_NO_LIB_PRAGMA -DTW_STATIC -DUSE_ZLIB_T -D_CRT_SECURE_NO_WARNINGS
-  DEP_FILE = CMakeFiles/capsule03.dir/src/ObjModel.cpp.o.d
+  DEP_FILE = CMakeFiles/project.dir/src/ObjModel.cpp.o.d
   FLAGS = -g -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.1.sdk -fcolor-diagnostics -F/Library/Developer/CommandLineTools/SDKs/MacOSX11.sdk/System/Library/Frameworks  -std=gnu++11
   INCLUDES = -I/encs/pkg/glm-0.9.9.8/root/include -iframework /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.1.sdk/System/Library/Frameworks -isystem /usr/local/include
-  OBJECT_DIR = CMakeFiles/capsule03.dir
-  OBJECT_FILE_DIR = CMakeFiles/capsule03.dir/src
+  OBJECT_DIR = CMakeFiles/project.dir
+  OBJECT_FILE_DIR = CMakeFiles/project.dir/src
 
-build CMakeFiles/capsule03.dir/src/ObjModel2.cpp.o: CXX_COMPILER__capsule03_Debug /Users/ohellum/Documents/GitHub/COMP371_project/src/ObjModel2.cpp || cmake_object_order_depends_target_capsule03
+build CMakeFiles/project.dir/src/ObjModel2.cpp.o: CXX_COMPILER__project_Debug /Users/ohellum/Documents/GitHub/COMP371_project/src/ObjModel2.cpp || cmake_object_order_depends_target_project
   DEFINES = -DGLEW_STATIC -DGLM_ENABLE_EXPERIMENTAL -DTW_NO_DIRECT3D -DTW_NO_LIB_PRAGMA -DTW_STATIC -DUSE_ZLIB_T -D_CRT_SECURE_NO_WARNINGS
-  DEP_FILE = CMakeFiles/capsule03.dir/src/ObjModel2.cpp.o.d
+  DEP_FILE = CMakeFiles/project.dir/src/ObjModel2.cpp.o.d
   FLAGS = -g -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.1.sdk -fcolor-diagnostics -F/Library/Developer/CommandLineTools/SDKs/MacOSX11.sdk/System/Library/Frameworks  -std=gnu++11
   INCLUDES = -I/encs/pkg/glm-0.9.9.8/root/include -iframework /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.1.sdk/System/Library/Frameworks -isystem /usr/local/include
-  OBJECT_DIR = CMakeFiles/capsule03.dir
-  OBJECT_FILE_DIR = CMakeFiles/capsule03.dir/src
+  OBJECT_DIR = CMakeFiles/project.dir
+  OBJECT_FILE_DIR = CMakeFiles/project.dir/src
 
-build CMakeFiles/capsule03.dir/src/ObjParser.cpp.o: CXX_COMPILER__capsule03_Debug /Users/ohellum/Documents/GitHub/COMP371_project/src/ObjParser.cpp || cmake_object_order_depends_target_capsule03
+build CMakeFiles/project.dir/src/ObjParser.cpp.o: CXX_COMPILER__project_Debug /Users/ohellum/Documents/GitHub/COMP371_project/src/ObjParser.cpp || cmake_object_order_depends_target_project
   DEFINES = -DGLEW_STATIC -DGLM_ENABLE_EXPERIMENTAL -DTW_NO_DIRECT3D -DTW_NO_LIB_PRAGMA -DTW_STATIC -DUSE_ZLIB_T -D_CRT_SECURE_NO_WARNINGS
-  DEP_FILE = CMakeFiles/capsule03.dir/src/ObjParser.cpp.o.d
+  DEP_FILE = CMakeFiles/project.dir/src/ObjParser.cpp.o.d
   FLAGS = -g -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.1.sdk -fcolor-diagnostics -F/Library/Developer/CommandLineTools/SDKs/MacOSX11.sdk/System/Library/Frameworks  -std=gnu++11
   INCLUDES = -I/encs/pkg/glm-0.9.9.8/root/include -iframework /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.1.sdk/System/Library/Frameworks -isystem /usr/local/include
-  OBJECT_DIR = CMakeFiles/capsule03.dir
-  OBJECT_FILE_DIR = CMakeFiles/capsule03.dir/src
+  OBJECT_DIR = CMakeFiles/project.dir
+  OBJECT_FILE_DIR = CMakeFiles/project.dir/src
 
-build CMakeFiles/capsule03.dir/src/RUIObject.cpp.o: CXX_COMPILER__capsule03_Debug /Users/ohellum/Documents/GitHub/COMP371_project/src/RUIObject.cpp || cmake_object_order_depends_target_capsule03
+build CMakeFiles/project.dir/src/RUIObject.cpp.o: CXX_COMPILER__project_Debug /Users/ohellum/Documents/GitHub/COMP371_project/src/RUIObject.cpp || cmake_object_order_depends_target_project
   DEFINES = -DGLEW_STATIC -DGLM_ENABLE_EXPERIMENTAL -DTW_NO_DIRECT3D -DTW_NO_LIB_PRAGMA -DTW_STATIC -DUSE_ZLIB_T -D_CRT_SECURE_NO_WARNINGS
-  DEP_FILE = CMakeFiles/capsule03.dir/src/RUIObject.cpp.o.d
+  DEP_FILE = CMakeFiles/project.dir/src/RUIObject.cpp.o.d
   FLAGS = -g -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.1.sdk -fcolor-diagnostics -F/Library/Developer/CommandLineTools/SDKs/MacOSX11.sdk/System/Library/Frameworks  -std=gnu++11
   INCLUDES = -I/encs/pkg/glm-0.9.9.8/root/include -iframework /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.1.sdk/System/Library/Frameworks -isystem /usr/local/include
-  OBJECT_DIR = CMakeFiles/capsule03.dir
-  OBJECT_FILE_DIR = CMakeFiles/capsule03.dir/src
+  OBJECT_DIR = CMakeFiles/project.dir
+  OBJECT_FILE_DIR = CMakeFiles/project.dir/src
 
-build CMakeFiles/capsule03.dir/src/RenderModel.cpp.o: CXX_COMPILER__capsule03_Debug /Users/ohellum/Documents/GitHub/COMP371_project/src/RenderModel.cpp || cmake_object_order_depends_target_capsule03
+build CMakeFiles/project.dir/src/RenderModel.cpp.o: CXX_COMPILER__project_Debug /Users/ohellum/Documents/GitHub/COMP371_project/src/RenderModel.cpp || cmake_object_order_depends_target_project
   DEFINES = -DGLEW_STATIC -DGLM_ENABLE_EXPERIMENTAL -DTW_NO_DIRECT3D -DTW_NO_LIB_PRAGMA -DTW_STATIC -DUSE_ZLIB_T -D_CRT_SECURE_NO_WARNINGS
-  DEP_FILE = CMakeFiles/capsule03.dir/src/RenderModel.cpp.o.d
+  DEP_FILE = CMakeFiles/project.dir/src/RenderModel.cpp.o.d
   FLAGS = -g -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.1.sdk -fcolor-diagnostics -F/Library/Developer/CommandLineTools/SDKs/MacOSX11.sdk/System/Library/Frameworks  -std=gnu++11
   INCLUDES = -I/encs/pkg/glm-0.9.9.8/root/include -iframework /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.1.sdk/System/Library/Frameworks -isystem /usr/local/include
-  OBJECT_DIR = CMakeFiles/capsule03.dir
-  OBJECT_FILE_DIR = CMakeFiles/capsule03.dir/src
+  OBJECT_DIR = CMakeFiles/project.dir
+  OBJECT_FILE_DIR = CMakeFiles/project.dir/src
 
-build CMakeFiles/capsule03.dir/src/TCamera.cpp.o: CXX_COMPILER__capsule03_Debug /Users/ohellum/Documents/GitHub/COMP371_project/src/TCamera.cpp || cmake_object_order_depends_target_capsule03
+build CMakeFiles/project.dir/src/TCamera.cpp.o: CXX_COMPILER__project_Debug /Users/ohellum/Documents/GitHub/COMP371_project/src/TCamera.cpp || cmake_object_order_depends_target_project
   DEFINES = -DGLEW_STATIC -DGLM_ENABLE_EXPERIMENTAL -DTW_NO_DIRECT3D -DTW_NO_LIB_PRAGMA -DTW_STATIC -DUSE_ZLIB_T -D_CRT_SECURE_NO_WARNINGS
-  DEP_FILE = CMakeFiles/capsule03.dir/src/TCamera.cpp.o.d
+  DEP_FILE = CMakeFiles/project.dir/src/TCamera.cpp.o.d
   FLAGS = -g -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.1.sdk -fcolor-diagnostics -F/Library/Developer/CommandLineTools/SDKs/MacOSX11.sdk/System/Library/Frameworks  -std=gnu++11
   INCLUDES = -I/encs/pkg/glm-0.9.9.8/root/include -iframework /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.1.sdk/System/Library/Frameworks -isystem /usr/local/include
-  OBJECT_DIR = CMakeFiles/capsule03.dir
-  OBJECT_FILE_DIR = CMakeFiles/capsule03.dir/src
+  OBJECT_DIR = CMakeFiles/project.dir
+  OBJECT_FILE_DIR = CMakeFiles/project.dir/src
 
-build CMakeFiles/capsule03.dir/src/TOGLApp.cpp.o: CXX_COMPILER__capsule03_Debug /Users/ohellum/Documents/GitHub/COMP371_project/src/TOGLApp.cpp || cmake_object_order_depends_target_capsule03
+build CMakeFiles/project.dir/src/TOGLApp.cpp.o: CXX_COMPILER__project_Debug /Users/ohellum/Documents/GitHub/COMP371_project/src/TOGLApp.cpp || cmake_object_order_depends_target_project
   DEFINES = -DGLEW_STATIC -DGLM_ENABLE_EXPERIMENTAL -DTW_NO_DIRECT3D -DTW_NO_LIB_PRAGMA -DTW_STATIC -DUSE_ZLIB_T -D_CRT_SECURE_NO_WARNINGS
-  DEP_FILE = CMakeFiles/capsule03.dir/src/TOGLApp.cpp.o.d
+  DEP_FILE = CMakeFiles/project.dir/src/TOGLApp.cpp.o.d
   FLAGS = -g -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.1.sdk -fcolor-diagnostics -F/Library/Developer/CommandLineTools/SDKs/MacOSX11.sdk/System/Library/Frameworks  -std=gnu++11
   INCLUDES = -I/encs/pkg/glm-0.9.9.8/root/include -iframework /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.1.sdk/System/Library/Frameworks -isystem /usr/local/include
-  OBJECT_DIR = CMakeFiles/capsule03.dir
-  OBJECT_FILE_DIR = CMakeFiles/capsule03.dir/src
+  OBJECT_DIR = CMakeFiles/project.dir
+  OBJECT_FILE_DIR = CMakeFiles/project.dir/src
 
-build CMakeFiles/capsule03.dir/src/TOGLWindow.cpp.o: CXX_COMPILER__capsule03_Debug /Users/ohellum/Documents/GitHub/COMP371_project/src/TOGLWindow.cpp || cmake_object_order_depends_target_capsule03
+build CMakeFiles/project.dir/src/TOGLWindow.cpp.o: CXX_COMPILER__project_Debug /Users/ohellum/Documents/GitHub/COMP371_project/src/TOGLWindow.cpp || cmake_object_order_depends_target_project
   DEFINES = -DGLEW_STATIC -DGLM_ENABLE_EXPERIMENTAL -DTW_NO_DIRECT3D -DTW_NO_LIB_PRAGMA -DTW_STATIC -DUSE_ZLIB_T -D_CRT_SECURE_NO_WARNINGS
-  DEP_FILE = CMakeFiles/capsule03.dir/src/TOGLWindow.cpp.o.d
+  DEP_FILE = CMakeFiles/project.dir/src/TOGLWindow.cpp.o.d
   FLAGS = -g -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.1.sdk -fcolor-diagnostics -F/Library/Developer/CommandLineTools/SDKs/MacOSX11.sdk/System/Library/Frameworks  -std=gnu++11
   INCLUDES = -I/encs/pkg/glm-0.9.9.8/root/include -iframework /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.1.sdk/System/Library/Frameworks -isystem /usr/local/include
-  OBJECT_DIR = CMakeFiles/capsule03.dir
-  OBJECT_FILE_DIR = CMakeFiles/capsule03.dir/src
+  OBJECT_DIR = CMakeFiles/project.dir
+  OBJECT_FILE_DIR = CMakeFiles/project.dir/src
 
-build CMakeFiles/capsule03.dir/src/TOGWLayer.cpp.o: CXX_COMPILER__capsule03_Debug /Users/ohellum/Documents/GitHub/COMP371_project/src/TOGWLayer.cpp || cmake_object_order_depends_target_capsule03
+build CMakeFiles/project.dir/src/TOGWLayer.cpp.o: CXX_COMPILER__project_Debug /Users/ohellum/Documents/GitHub/COMP371_project/src/TOGWLayer.cpp || cmake_object_order_depends_target_project
   DEFINES = -DGLEW_STATIC -DGLM_ENABLE_EXPERIMENTAL -DTW_NO_DIRECT3D -DTW_NO_LIB_PRAGMA -DTW_STATIC -DUSE_ZLIB_T -D_CRT_SECURE_NO_WARNINGS
-  DEP_FILE = CMakeFiles/capsule03.dir/src/TOGWLayer.cpp.o.d
+  DEP_FILE = CMakeFiles/project.dir/src/TOGWLayer.cpp.o.d
   FLAGS = -g -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.1.sdk -fcolor-diagnostics -F/Library/Developer/CommandLineTools/SDKs/MacOSX11.sdk/System/Library/Frameworks  -std=gnu++11
   INCLUDES = -I/encs/pkg/glm-0.9.9.8/root/include -iframework /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.1.sdk/System/Library/Frameworks -isystem /usr/local/include
-  OBJECT_DIR = CMakeFiles/capsule03.dir
-  OBJECT_FILE_DIR = CMakeFiles/capsule03.dir/src
+  OBJECT_DIR = CMakeFiles/project.dir
+  OBJECT_FILE_DIR = CMakeFiles/project.dir/src
 
-build CMakeFiles/capsule03.dir/src/TTrackBall.cpp.o: CXX_COMPILER__capsule03_Debug /Users/ohellum/Documents/GitHub/COMP371_project/src/TTrackBall.cpp || cmake_object_order_depends_target_capsule03
+build CMakeFiles/project.dir/src/TTrackBall.cpp.o: CXX_COMPILER__project_Debug /Users/ohellum/Documents/GitHub/COMP371_project/src/TTrackBall.cpp || cmake_object_order_depends_target_project
   DEFINES = -DGLEW_STATIC -DGLM_ENABLE_EXPERIMENTAL -DTW_NO_DIRECT3D -DTW_NO_LIB_PRAGMA -DTW_STATIC -DUSE_ZLIB_T -D_CRT_SECURE_NO_WARNINGS
-  DEP_FILE = CMakeFiles/capsule03.dir/src/TTrackBall.cpp.o.d
+  DEP_FILE = CMakeFiles/project.dir/src/TTrackBall.cpp.o.d
   FLAGS = -g -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.1.sdk -fcolor-diagnostics -F/Library/Developer/CommandLineTools/SDKs/MacOSX11.sdk/System/Library/Frameworks  -std=gnu++11
   INCLUDES = -I/encs/pkg/glm-0.9.9.8/root/include -iframework /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.1.sdk/System/Library/Frameworks -isystem /usr/local/include
-  OBJECT_DIR = CMakeFiles/capsule03.dir
-  OBJECT_FILE_DIR = CMakeFiles/capsule03.dir/src
+  OBJECT_DIR = CMakeFiles/project.dir
+  OBJECT_FILE_DIR = CMakeFiles/project.dir/src
 
-build CMakeFiles/capsule03.dir/src/TTrackBall360.cpp.o: CXX_COMPILER__capsule03_Debug /Users/ohellum/Documents/GitHub/COMP371_project/src/TTrackBall360.cpp || cmake_object_order_depends_target_capsule03
+build CMakeFiles/project.dir/src/TTrackBall360.cpp.o: CXX_COMPILER__project_Debug /Users/ohellum/Documents/GitHub/COMP371_project/src/TTrackBall360.cpp || cmake_object_order_depends_target_project
   DEFINES = -DGLEW_STATIC -DGLM_ENABLE_EXPERIMENTAL -DTW_NO_DIRECT3D -DTW_NO_LIB_PRAGMA -DTW_STATIC -DUSE_ZLIB_T -D_CRT_SECURE_NO_WARNINGS
-  DEP_FILE = CMakeFiles/capsule03.dir/src/TTrackBall360.cpp.o.d
+  DEP_FILE = CMakeFiles/project.dir/src/TTrackBall360.cpp.o.d
   FLAGS = -g -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.1.sdk -fcolor-diagnostics -F/Library/Developer/CommandLineTools/SDKs/MacOSX11.sdk/System/Library/Frameworks  -std=gnu++11
   INCLUDES = -I/encs/pkg/glm-0.9.9.8/root/include -iframework /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.1.sdk/System/Library/Frameworks -isystem /usr/local/include
-  OBJECT_DIR = CMakeFiles/capsule03.dir
-  OBJECT_FILE_DIR = CMakeFiles/capsule03.dir/src
+  OBJECT_DIR = CMakeFiles/project.dir
+  OBJECT_FILE_DIR = CMakeFiles/project.dir/src
 
-build CMakeFiles/capsule03.dir/src/TTrackBall360google.cpp.o: CXX_COMPILER__capsule03_Debug /Users/ohellum/Documents/GitHub/COMP371_project/src/TTrackBall360google.cpp || cmake_object_order_depends_target_capsule03
+build CMakeFiles/project.dir/src/TTrackBall360google.cpp.o: CXX_COMPILER__project_Debug /Users/ohellum/Documents/GitHub/COMP371_project/src/TTrackBall360google.cpp || cmake_object_order_depends_target_project
   DEFINES = -DGLEW_STATIC -DGLM_ENABLE_EXPERIMENTAL -DTW_NO_DIRECT3D -DTW_NO_LIB_PRAGMA -DTW_STATIC -DUSE_ZLIB_T -D_CRT_SECURE_NO_WARNINGS
-  DEP_FILE = CMakeFiles/capsule03.dir/src/TTrackBall360google.cpp.o.d
+  DEP_FILE = CMakeFiles/project.dir/src/TTrackBall360google.cpp.o.d
   FLAGS = -g -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.1.sdk -fcolor-diagnostics -F/Library/Developer/CommandLineTools/SDKs/MacOSX11.sdk/System/Library/Frameworks  -std=gnu++11
   INCLUDES = -I/encs/pkg/glm-0.9.9.8/root/include -iframework /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.1.sdk/System/Library/Frameworks -isystem /usr/local/include
-  OBJECT_DIR = CMakeFiles/capsule03.dir
-  OBJECT_FILE_DIR = CMakeFiles/capsule03.dir/src
+  OBJECT_DIR = CMakeFiles/project.dir
+  OBJECT_FILE_DIR = CMakeFiles/project.dir/src
 
-build CMakeFiles/capsule03.dir/src/Text.cpp.o: CXX_COMPILER__capsule03_Debug /Users/ohellum/Documents/GitHub/COMP371_project/src/Text.cpp || cmake_object_order_depends_target_capsule03
+build CMakeFiles/project.dir/src/Text.cpp.o: CXX_COMPILER__project_Debug /Users/ohellum/Documents/GitHub/COMP371_project/src/Text.cpp || cmake_object_order_depends_target_project
   DEFINES = -DGLEW_STATIC -DGLM_ENABLE_EXPERIMENTAL -DTW_NO_DIRECT3D -DTW_NO_LIB_PRAGMA -DTW_STATIC -DUSE_ZLIB_T -D_CRT_SECURE_NO_WARNINGS
-  DEP_FILE = CMakeFiles/capsule03.dir/src/Text.cpp.o.d
+  DEP_FILE = CMakeFiles/project.dir/src/Text.cpp.o.d
   FLAGS = -g -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.1.sdk -fcolor-diagnostics -F/Library/Developer/CommandLineTools/SDKs/MacOSX11.sdk/System/Library/Frameworks  -std=gnu++11
   INCLUDES = -I/encs/pkg/glm-0.9.9.8/root/include -iframework /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.1.sdk/System/Library/Frameworks -isystem /usr/local/include
-  OBJECT_DIR = CMakeFiles/capsule03.dir
-  OBJECT_FILE_DIR = CMakeFiles/capsule03.dir/src
+  OBJECT_DIR = CMakeFiles/project.dir
+  OBJECT_FILE_DIR = CMakeFiles/project.dir/src
 
-build CMakeFiles/capsule03.dir/src/Virtual3DLayer.cpp.o: CXX_COMPILER__capsule03_Debug /Users/ohellum/Documents/GitHub/COMP371_project/src/Virtual3DLayer.cpp || cmake_object_order_depends_target_capsule03
+build CMakeFiles/project.dir/src/Virtual3DLayer.cpp.o: CXX_COMPILER__project_Debug /Users/ohellum/Documents/GitHub/COMP371_project/src/Virtual3DLayer.cpp || cmake_object_order_depends_target_project
   DEFINES = -DGLEW_STATIC -DGLM_ENABLE_EXPERIMENTAL -DTW_NO_DIRECT3D -DTW_NO_LIB_PRAGMA -DTW_STATIC -DUSE_ZLIB_T -D_CRT_SECURE_NO_WARNINGS
-  DEP_FILE = CMakeFiles/capsule03.dir/src/Virtual3DLayer.cpp.o.d
+  DEP_FILE = CMakeFiles/project.dir/src/Virtual3DLayer.cpp.o.d
   FLAGS = -g -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.1.sdk -fcolor-diagnostics -F/Library/Developer/CommandLineTools/SDKs/MacOSX11.sdk/System/Library/Frameworks  -std=gnu++11
   INCLUDES = -I/encs/pkg/glm-0.9.9.8/root/include -iframework /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.1.sdk/System/Library/Frameworks -isystem /usr/local/include
-  OBJECT_DIR = CMakeFiles/capsule03.dir
-  OBJECT_FILE_DIR = CMakeFiles/capsule03.dir/src
+  OBJECT_DIR = CMakeFiles/project.dir
+  OBJECT_FILE_DIR = CMakeFiles/project.dir/src
 
-build CMakeFiles/capsule03.dir/src/main.cpp.o: CXX_COMPILER__capsule03_Debug /Users/ohellum/Documents/GitHub/COMP371_project/src/main.cpp || cmake_object_order_depends_target_capsule03
+build CMakeFiles/project.dir/src/main.cpp.o: CXX_COMPILER__project_Debug /Users/ohellum/Documents/GitHub/COMP371_project/src/main.cpp || cmake_object_order_depends_target_project
   DEFINES = -DGLEW_STATIC -DGLM_ENABLE_EXPERIMENTAL -DTW_NO_DIRECT3D -DTW_NO_LIB_PRAGMA -DTW_STATIC -DUSE_ZLIB_T -D_CRT_SECURE_NO_WARNINGS
-  DEP_FILE = CMakeFiles/capsule03.dir/src/main.cpp.o.d
+  DEP_FILE = CMakeFiles/project.dir/src/main.cpp.o.d
   FLAGS = -g -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.1.sdk -fcolor-diagnostics -F/Library/Developer/CommandLineTools/SDKs/MacOSX11.sdk/System/Library/Frameworks  -std=gnu++11
   INCLUDES = -I/encs/pkg/glm-0.9.9.8/root/include -iframework /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.1.sdk/System/Library/Frameworks -isystem /usr/local/include
-  OBJECT_DIR = CMakeFiles/capsule03.dir
-  OBJECT_FILE_DIR = CMakeFiles/capsule03.dir/src
+  OBJECT_DIR = CMakeFiles/project.dir
+  OBJECT_FILE_DIR = CMakeFiles/project.dir/src
 
 
 # =============================================================================
-# Link build statements for EXECUTABLE target capsule03
+# Link build statements for EXECUTABLE target project
 
 
 #############################################
-# Link the executable capsule03
+# Link the executable project
 
-build capsule03: CXX_EXECUTABLE_LINKER__capsule03_Debug CMakeFiles/capsule03.dir/src/GLUtils.cpp.o CMakeFiles/capsule03.dir/src/ObjModel.cpp.o CMakeFiles/capsule03.dir/src/ObjModel2.cpp.o CMakeFiles/capsule03.dir/src/ObjParser.cpp.o CMakeFiles/capsule03.dir/src/RUIObject.cpp.o CMakeFiles/capsule03.dir/src/RenderModel.cpp.o CMakeFiles/capsule03.dir/src/TCamera.cpp.o CMakeFiles/capsule03.dir/src/TOGLApp.cpp.o CMakeFiles/capsule03.dir/src/TOGLWindow.cpp.o CMakeFiles/capsule03.dir/src/TOGWLayer.cpp.o CMakeFiles/capsule03.dir/src/TTrackBall.cpp.o CMakeFiles/capsule03.dir/src/TTrackBall360.cpp.o CMakeFiles/capsule03.dir/src/TTrackBall360google.cpp.o CMakeFiles/capsule03.dir/src/Text.cpp.o CMakeFiles/capsule03.dir/src/Virtual3DLayer.cpp.o CMakeFiles/capsule03.dir/src/main.cpp.o | /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.1.sdk/System/Library/Frameworks/OpenGL.framework/OpenGL.tbd /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.1.sdk/System/Library/Frameworks/OpenGL.framework/OpenGL.tbd /usr/local/lib/libGLEW.2.2.0.dylib /usr/local/lib/libglfw.3.3.dylib /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.1.sdk/System/Library/Frameworks/OpenGL.framework/OpenGL.tbd
+build project: CXX_EXECUTABLE_LINKER__project_Debug CMakeFiles/project.dir/src/GLUtils.cpp.o CMakeFiles/project.dir/src/ObjModel.cpp.o CMakeFiles/project.dir/src/ObjModel2.cpp.o CMakeFiles/project.dir/src/ObjParser.cpp.o CMakeFiles/project.dir/src/RUIObject.cpp.o CMakeFiles/project.dir/src/RenderModel.cpp.o CMakeFiles/project.dir/src/TCamera.cpp.o CMakeFiles/project.dir/src/TOGLApp.cpp.o CMakeFiles/project.dir/src/TOGLWindow.cpp.o CMakeFiles/project.dir/src/TOGWLayer.cpp.o CMakeFiles/project.dir/src/TTrackBall.cpp.o CMakeFiles/project.dir/src/TTrackBall360.cpp.o CMakeFiles/project.dir/src/TTrackBall360google.cpp.o CMakeFiles/project.dir/src/Text.cpp.o CMakeFiles/project.dir/src/Virtual3DLayer.cpp.o CMakeFiles/project.dir/src/main.cpp.o | /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.1.sdk/System/Library/Frameworks/OpenGL.framework/OpenGL.tbd /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.1.sdk/System/Library/Frameworks/OpenGL.framework/OpenGL.tbd /usr/local/lib/libGLEW.2.2.0.dylib /usr/local/lib/libglfw.3.3.dylib /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.1.sdk/System/Library/Frameworks/OpenGL.framework/OpenGL.tbd
   FLAGS = -g -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.1.sdk
   LINK_LIBRARIES = -Wl,-rpath,/usr/local/lib  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.1.sdk/System/Library/Frameworks/OpenGL.framework/OpenGL.tbd  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.1.sdk/System/Library/Frameworks/OpenGL.framework/OpenGL.tbd  /usr/local/lib/libGLEW.2.2.0.dylib  /usr/local/lib/libglfw.3.3.dylib  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.1.sdk/System/Library/Frameworks/OpenGL.framework/OpenGL.tbd  -Xlinker -framework -Xlinker OpenGL
   LINK_PATH = -F/Library/Developer/CommandLineTools/SDKs/MacOSX11.sdk/System/Library/Frameworks
-  OBJECT_DIR = CMakeFiles/capsule03.dir
+  OBJECT_DIR = CMakeFiles/project.dir
   POST_BUILD = :
   PRE_LINK = :
-  TARGET_FILE = capsule03
-  TARGET_PDB = capsule03.dbg
+  TARGET_FILE = project
+  TARGET_PDB = project.dbg
 
 
 #############################################
@@ -226,7 +226,7 @@ build rebuild_cache: phony CMakeFiles/rebuild_cache.util
 #############################################
 # Folder: /Users/ohellum/Documents/GitHub/COMP371_project/cmake-build-debug
 
-build all: phony capsule03
+build all: phony project
 
 # =============================================================================
 # Built-in targets

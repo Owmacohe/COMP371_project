@@ -27,7 +27,7 @@
 					[
 						0
 					],
-					"name" : "capsule03",
+					"name" : "project",
 					"targetIndexes" : 
 					[
 						0
@@ -38,9 +38,9 @@
 			[
 				{
 					"directoryIndex" : 0,
-					"id" : "capsule03::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-capsule03-Debug-5472cb4b9abc1b4e2fb9.json",
-					"name" : "capsule03",
+					"id" : "project::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-project-Debug-49c4674b7ddbeb744bf0.json",
+					"name" : "project",
 					"projectIndex" : 0
 				}
 			]

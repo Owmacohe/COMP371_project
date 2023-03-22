@@ -1,6 +1,4 @@
 /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -DCMAKE_BUILD_TYPE=Debug -DCMAKE_MAKE_PROGRAM=/Applications/CLion.app/Contents/bin/ninja/mac/ninja -G Ninja -S /Users/ohellum/Documents/GitHub/COMP371_project -B /Users/ohellum/Documents/GitHub/COMP371_project/cmake-build-debug
--- Found OpenGL: /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.1.sdk/System/Library/Frameworks/OpenGL.framework  found components: OpenGL 
--- Found GLEW: /usr/local/lib/cmake/glew/glew-config.cmake  
 -- Configuring done
 -- Generating done
 -- Build files have been written to: /Users/ohellum/Documents/GitHub/COMP371_project/cmake-build-debug

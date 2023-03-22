@@ -29,27 +29,107 @@ int main(int argc, char* argv[]) {
     Virtual3DLayer* view = new Virtual3DLayer(w, h);
     gapp.m_window.m_layers.push_back(view);
 
-    string primitives[] = { "cube", "sphere", "monkey" };
+    int current = 0;
 
-    std::string model1_name = argv[1];
-    std::string model2_name = argv[3];
-    std::string operation = argv[2];
+    std::string model1 = argv[1];
+    float model1_scale = stof(argv[2]);
 
-    for (int j = 0; j < 3; j++) {
-        if (model1_name == primitives[j]) {
-            model1_name = "../assets/" + model1_name + ".obj";
-        }
+    bool show_model1 = false;
+    std::string temp1 = argv[3];
 
-        if (model2_name == primitives[j]) {
-            model2_name = "../assets/" + model2_name + ".obj";
-        }
+    if (temp1 == "-o") {
+        show_model1 = true;
+        current++;
     }
 
-    RenderModel* model2 = new RenderModel(model2_name);
-    RenderModel* model1 = new RenderModel(model1_name, operation, model2);
+    std::string model2 = argv[current + 3];
+    float model2_scale = stof(argv[current + 4]);
 
-    view->m_objects.push_back(model1);
-    //view->m_objects.push_back(model2);
+    bool show_model2 = false;
+    std::string temp2 = argv[current + 5];
+
+    if (temp2 == "-o") {
+        show_model2 = true;
+        current++;
+    }
+
+    std::string operation = argv[current + 5];
+
+    bool hide = false;
+
+    if (argc > current + 6) {
+        std::string hide_string = argv[current + 6];
+        hide = hide_string == "-h";
+    }
+
+    // u = everything
+    // s = first subtract the second
+    // i = contained between the two
+    // d = everything not intersecting
+    if (operation == "-u" || operation == "-s" || operation == "-d") {
+        if (model1 == "sphere") model1 = "sp";
+
+        if (!hide) {
+            if (operation != "-u")
+                view->m_objects.push_back(new RenderModel(
+                    "../assets/" + model1 + ".obj",
+                    model1_scale,
+                    T3D::TTuple<double, 3>(1, 0.5f, 0),
+                    model2,
+                    model2_scale,
+                    operation == "-d"
+                ));
+            else
+                view->m_objects.push_back(new RenderModel(
+                    "../assets/" + model1 + ".obj",
+                    model1_scale,
+                    T3D::TTuple<double, 3>(1, 0.5f, 0)
+                ));
+        }
+
+        if (operation == "-u" || operation == "-d") {
+            if (model1 == "sp") model1 = "sphere";
+            if (model2 == "sphere") model2 = "sp";
+
+            if (!hide) {
+                if (operation != "-u")
+                    view->m_objects.push_back(new RenderModel(
+                        "../assets/" + model2 + ".obj",
+                        model2_scale,
+                        T3D::TTuple<double, 3>(1, 0.5f, 0),
+                        model1,
+                        model1_scale,
+                        operation == "-d"
+                    ));
+                else
+                    view->m_objects.push_back(new RenderModel(
+                        "../assets/" + model2 + ".obj",
+                        model2_scale,
+                        T3D::TTuple<double, 3>(1, 0.5f, 0)
+                    ));
+            }
+        }
+
+        if (show_model1) {
+            if (model1 == "sphere") model1 = "sp";
+
+            view->m_objects.push_back(new RenderModel(
+                "../assets/" + model1 + ".obj",
+                model1_scale,
+                T3D::TTuple<double, 3>(1, 1, 0)
+            ));
+        }
+
+        if (show_model2) {
+            if (model2 == "sphere") model2 = "sp";
+
+            view->m_objects.push_back(new RenderModel(
+                "../assets/" + model2 + ".obj",
+                model2_scale,
+                T3D::TTuple<double, 3>(1, 0, 0)
+            ));
+        }
+    }
 
     gapp.run();
     gapp.release();

@@ -146,7 +146,7 @@ CMAKE_PROJECT_DESCRIPTION:STATIC=
 CMAKE_PROJECT_HOMEPAGE_URL:STATIC=
 
 //Value Computed by CMake
-CMAKE_PROJECT_NAME:STATIC=capsule03
+CMAKE_PROJECT_NAME:STATIC=project
 
 //Path to a program.
 CMAKE_RANLIB:FILEPATH=/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ranlib
@@ -242,6 +242,15 @@ capsule03_SOURCE_DIR:STATIC=/Users/ohellum/Documents/GitHub/COMP371_project
 
 //The directory containing a CMake configuration file for glfw3.
 glfw3_DIR:PATH=/usr/local/lib/cmake/glfw3
+
+//Value Computed by CMake
+project_BINARY_DIR:STATIC=/Users/ohellum/Documents/GitHub/COMP371_project/cmake-build-debug
+
+//Value Computed by CMake
+project_IS_TOP_LEVEL:STATIC=ON
+
+//Value Computed by CMake
+project_SOURCE_DIR:STATIC=/Users/ohellum/Documents/GitHub/COMP371_project
 
 
 ########################
