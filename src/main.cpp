@@ -19,7 +19,7 @@ int main(int argc, char* argv[]) {
     int w = 1024;
     int h = 768;
     
-    std::string name = "OGL Viewer";
+    std::string name = "Owen Hellum - COMP 371 CSG Project";
     
     if (!gapp.initialize(w, h, name)) {
         cout << "Unable to initialize!" << endl;
@@ -35,9 +35,9 @@ int main(int argc, char* argv[]) {
     float model1_scale = stof(argv[2]);
 
     bool show_model1 = false;
-    std::string temp1 = argv[3];
+    std::string show_temp1 = argv[3];
 
-    if (temp1 == "-o") {
+    if (show_temp1 == "-o") {
         show_model1 = true;
         current++;
     }
@@ -46,90 +46,42 @@ int main(int argc, char* argv[]) {
     float model2_scale = stof(argv[current + 4]);
 
     bool show_model2 = false;
-    std::string temp2 = argv[current + 5];
+    std::string show_temp2 = argv[current + 5];
 
-    if (temp2 == "-o") {
+    if (show_temp2 == "-o") {
         show_model2 = true;
         current++;
     }
 
     std::string operation = argv[current + 5];
+    bool u, s, i, d;
 
-    bool hide = false;
+    if (operation == "-u") u = true;
+    if (operation == "-s") s = true;
+    if (operation == "-i") i = true;
+    if (operation == "-d") d = true;
 
-    if (argc > current + 6) {
-        std::string hide_string = argv[current + 6];
-        hide = hide_string == "-h";
-    }
+    RenderModel *rm1 = new RenderModel("../assets/" + model1 + ".obj", {1, 0, 0}, model1_scale);
+    RenderModel *rm2 = new RenderModel("../assets/" + model2 + ".obj", {1, 1, 0}, model2_scale);
 
     // u = everything
     // s = first subtract the second
     // i = contained between the two
     // d = everything not intersecting
-    if (operation == "-u" || operation == "-s" || operation == "-d") {
-        if (model1 == "sphere") model1 = "sp";
+    if (s) {
+        RenderModel *subtract_1_2 = new RenderModel(
+            "../assets/" + model1 + ".obj",
+            {1, 0.5, 0},
+            model1_scale,
+            rm2,
+            true
+        );
 
-        if (!hide) {
-            if (operation != "-u")
-                view->m_objects.push_back(new RenderModel(
-                    "../assets/" + model1 + ".obj",
-                    model1_scale,
-                    T3D::TTuple<double, 3>(1, 0.5f, 0),
-                    model2,
-                    model2_scale,
-                    operation == "-d"
-                ));
-            else
-                view->m_objects.push_back(new RenderModel(
-                    "../assets/" + model1 + ".obj",
-                    model1_scale,
-                    T3D::TTuple<double, 3>(1, 0.5f, 0)
-                ));
-        }
-
-        if (operation == "-u" || operation == "-d") {
-            if (model1 == "sp") model1 = "sphere";
-            if (model2 == "sphere") model2 = "sp";
-
-            if (!hide) {
-                if (operation != "-u")
-                    view->m_objects.push_back(new RenderModel(
-                        "../assets/" + model2 + ".obj",
-                        model2_scale,
-                        T3D::TTuple<double, 3>(1, 0.5f, 0),
-                        model1,
-                        model1_scale,
-                        operation == "-d"
-                    ));
-                else
-                    view->m_objects.push_back(new RenderModel(
-                        "../assets/" + model2 + ".obj",
-                        model2_scale,
-                        T3D::TTuple<double, 3>(1, 0.5f, 0)
-                    ));
-            }
-        }
-
-        if (show_model1) {
-            if (model1 == "sphere") model1 = "sp";
-
-            view->m_objects.push_back(new RenderModel(
-                "../assets/" + model1 + ".obj",
-                model1_scale,
-                T3D::TTuple<double, 3>(1, 1, 0)
-            ));
-        }
-
-        if (show_model2) {
-            if (model2 == "sphere") model2 = "sp";
-
-            view->m_objects.push_back(new RenderModel(
-                "../assets/" + model2 + ".obj",
-                model2_scale,
-                T3D::TTuple<double, 3>(1, 0, 0)
-            ));
-        }
+        view->m_objects.push_back(subtract_1_2);
     }
+
+    if (show_model1) view->m_objects.push_back(rm1);
+    if (show_model2) view->m_objects.push_back(rm2);
 
     gapp.run();
     gapp.release();

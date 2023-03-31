@@ -246,7 +246,7 @@ namespace TAPP {
             
             m_objects[i]->m_wsize[0] = m_camera.tball.scrWidth;
             m_objects[i]->m_wsize[1] = m_camera.tball.scrHeight;
-            
+
             m_objects[i]->render();
         }
 

@@ -21,18 +21,13 @@ namespace TAPP {
         
     }
         
-        RenderModel(std::string filename, float s, T3D::TTuple<double, 3> c)
-        :RUIObject(), scale(s), colour(c), perform_operation(false){
+        RenderModel(std::string filename, T3D::TTuple<double, 3> c, float s)
+        :RUIObject(), colour(c), scale(s), perform_operation(false) {
             Load(m_obj, filename.c_str());
         }
 
-        RenderModel(std::string filename, float s, T3D::TTuple<double, 3> c, RenderModel *m, float ms, bool inside)
-        :RUIObject(), scale(s), colour(c), model(m), model_scale(ms), remove_inside(inside), perform_operation(true){
-            Load(m_obj, filename.c_str());
-        }
-
-        RenderModel(std::string filename, float s, T3D::TTuple<double, 3> c, std::string p, float ms, bool inside)
-        :RUIObject(), scale(s), colour(c), primitive(p), model_scale(ms), remove_inside(inside), perform_operation(true){
+        RenderModel(std::string filename, T3D::TTuple<double, 3> c, float s, RenderModel *m, bool inside)
+        :RUIObject(), colour(c), scale(s), model(m), perform_operation(true) {
             Load(m_obj, filename.c_str());
         }
         
@@ -90,18 +85,22 @@ namespace TAPP {
         virtual void render_pick_select(PickDataback& ) ; // to see if we selected this object
         virtual void render_pick_detail(PickDataback& ); // to see if we selected a certain primitive
 
+        float scale;
+        bool invalid;
         T3D::TTuple<double, 3> colour;
         bool perform_operation;
-        bool remove_inside;
-        float scale, model_scale;
         RenderModel *model;
         std::string primitive;
 
-        /*
+        void to_string(T3D::TTuple<double, 3>);
+        void to_string(vector<int>);
+        void to_string(vector<float>);
+        T3D::TPoint projection_on_plane(
+            T3D::TPoint plane_point, T3D::TVector plane_normal,
+            T3D::TPoint point_origin, T3D::TVector point_direction);
         bool is_on_right(T3D::TPoint check, T3D::TPoint p1, T3D::TPoint p2, T3D::TVector n);
         bool hit_triangle(T3D::TPoint check, T3D::TPoint p1, T3D::TPoint p2, T3D::TPoint p3, T3D::TVector n);
         bool is_point_inside(T3D::TPoint p, RenderModel *r);
-        */
 };
 
 

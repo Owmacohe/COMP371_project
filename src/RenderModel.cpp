@@ -16,11 +16,11 @@ using namespace T3D;
 namespace TAPP {
 
    
-    void RenderModel::hover(double  x, double y, int mods){
+    void RenderModel::hover(double  x, double y, int mods) {
         
         
     }
-    void RenderModel::grab(double x, double y, int b, int mods /* 0 left, 1 right, 2 middle*/){
+    void RenderModel::grab(double x, double y, int b, int mods /* 0 left, 1 right, 2 middle*/) {
         
         
     }
@@ -32,98 +32,96 @@ namespace TAPP {
     }
     
     
-    void RenderModel::resize(double x, double y){
+    void RenderModel::resize(double x, double y) {
         
         
     }
     
-    void RenderModel::load_geometry(){
+    void RenderModel::load_geometry() {
         
         std::vector<float> vertices, normals;
         //
         
-        if(m_obj.vertex.size()!=m_obj.normal.size()){
+        if (m_obj.vertex.size()!=m_obj.normal.size()) {
             cout<<"Error normal vs vertices! "<<m_obj.vertex.size()<<" "<<m_obj.normal.size()<<endl;
             return;
         }
 
         vector<bool> gone;
+
+        cout << endl;
         
-        for(int i=0;i<m_obj.vertex.size();++i){
-            for(int j=0;j<3;++j){
-
-
+        for (int i=0;i<m_obj.vertex.size();++i) {
+            for (int j=0;j<3;++j) {
                 vertices.push_back(m_obj.vertex[i][j] * scale);
                 normals.push_back(m_obj.normal[i][j]);
                // vertices[3*i+j] = m_obj.vertex[i][j];
                // normals[3*i+j] = m_obj.normal[i][j];
             }
 
-            /*is_point_inside(m_obj.vertex[i], model)*/
+            if (perform_operation) {
+//                float percentage = i / m_obj.vertex.size();
+//                cout << percentage << endl;
 
-            if (perform_operation) gone.push_back(remove_inside
-                ? ((primitive == "cube" &&
-                (m_obj.vertex[i][0] * scale < model_scale && m_obj.vertex[i][0] * scale > -model_scale) &&
-                (m_obj.vertex[i][1] * scale < model_scale && m_obj.vertex[i][1] * scale > -model_scale) &&
-                (m_obj.vertex[i][2] * scale < model_scale && m_obj.vertex[i][2] * scale > -model_scale)) ||
-                (primitive == "sphere" && (m_obj.vertex[i] * scale).norm() < model_scale))
-                : ((primitive == "cube" &&
-                (m_obj.vertex[i][0] * scale > model_scale || m_obj.vertex[i][0] * scale < -model_scale) ||
-                (m_obj.vertex[i][1] * scale > model_scale || m_obj.vertex[i][1] * scale < -model_scale) ||
-                (m_obj.vertex[i][2] * scale > model_scale || m_obj.vertex[i][2] * scale < -model_scale)) ||
-                (primitive == "sphere" && (m_obj.vertex[i] * scale).norm() > model_scale))
-            );
+                bool inside = is_point_inside(m_obj.vertex[i], model);
+
+                gone.push_back(inside);
+            }
             else gone.push_back(false);
         }
+
+        cout << endl;
         
     //    cout<<"Mesh has: "<<vertices.size()/3<<": vertices!"<<endl;
         
         std::vector<unsigned int> indices;
       //  unsigned int* indices = new unsigned int[m_obj.faces.size()*3];
         
-        for(int i=0;i<m_obj.faces.size();++i){
-            if(m_obj.faces[i].size()!=3){
+        for (int i=0; i<m_obj.faces.size(); ++i) {
+            if (m_obj.faces[i].size()!=3) {
                 cout<<"Error: not a triangular mesh!"<<endl;
                 return;
             }
 
             bool valid_face = true;
 
-            for(int j=0;j<3;++j)
-                if (gone[m_obj.faces[i][j]]) valid_face = false;
+            for (int j=0; j<3; ++j)
+                if (gone[m_obj.faces[i][j]])
+                    valid_face = false;
 
             if (valid_face) {
-                for(int k=0;k<3;++k){
+                for (int k=0; k<3; ++k) {
                     indices.push_back(m_obj.faces[i][k]);
                     //     indices[3*i+k] = m_obj.faces[i][k];
                 }
             }
         }
+
+        if (indices.size() == 0) invalid = true;
         
     //    cout<<"Mesh has: "<<indices.size()/3<<": faces!"<<endl;
 
-        
         // 0 - create the vertex array object
         glGenVertexArrays(1, &m_VAO);
         glBindVertexArray(m_VAO);
-        
-        
+
+
         cout<<"Szies: "<<sizeof(vertices)<<" "<<sizeof(normals)<<" "<<sizeof(indices)<<" "<<sizeof(unsigned int)<<" "<<sizeof(float)<<endl;
-        
+
         // create the vertex buffer object -- first entry in the renderer
         glGenBuffers(1, &m_VBO);
         glBindBuffer(GL_ARRAY_BUFFER, m_VBO);
         glBufferData(GL_ARRAY_BUFFER, vertices.size()*sizeof(float), &vertices[0], GL_STATIC_DRAW);
         glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float),(void*)0);
         glEnableVertexAttribArray(0);
-        
+
         glGenBuffers(1, &m_NBO);
         glBindBuffer(GL_ARRAY_BUFFER, m_NBO);
         glBufferData(GL_ARRAY_BUFFER, normals.size()*sizeof(float), &normals[0], GL_STATIC_DRAW);
         glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), (void*)0);
         glEnableVertexAttribArray(1);
-        
-        
+
+
         // element array buffer
         glGenBuffers(1, &m_EBO);
         glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, m_EBO);
@@ -137,7 +135,7 @@ namespace TAPP {
 
 
     
-    void RenderModel::init(){
+    void RenderModel::init() {
         is_error();
         
         
@@ -161,7 +159,7 @@ namespace TAPP {
 
         programWire = LoadShaders( vsh1.c_str(), fsh1.c_str());
        
-        if(is_error(true)){
+        if (is_error(true)) {
             cout<<"Err 00"<<endl;
         }
         
@@ -178,14 +176,14 @@ namespace TAPP {
         wireDiffuse = glGetUniformLocation(programWire, "diffuse_color");
         
         
-        if(is_error()){
+        if (is_error()) {
             cout<<"Err B"<<endl;
         }
         
     }
     
     
-    void RenderModel::release(){
+    void RenderModel::release() {
         
     //    cout<<"Do I ger hre! 34"<<endl;
         
@@ -200,29 +198,28 @@ namespace TAPP {
     }
     
 
-void RenderModel::render(){
+void RenderModel::render() {
     
   //  render_general(0);
 
-   render_general(0);
+   if (!invalid) render_general(0);
 
 }
 
 
 
-    void RenderModel::render_general(int mode){
-        
+    void RenderModel::render_general(int mode) {
         glDisable(GL_CULL_FACE); 
         
         
-        if(is_error()){
+        if (is_error()) {
             cout<<"Err B1"<<endl;
         }
         
          //glLightModeli(GL_LIGHT_MODEL_TWO_SIDE, GL_TRUE);
          glEnable(GL_DEPTH_TEST);
       
-        if(is_error()){
+        if (is_error()) {
             cout<<"Err B1_2"<<endl;
         }
         
@@ -230,14 +227,14 @@ void RenderModel::render(){
          glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, m_EBO);
         
         // Get a handle for our "LightPosition" uniform
-        if(mode==0){
+        if (mode==0) {
             glUseProgram(programPhong);
         } else {
             glUseProgram(programWire);
         }
     //    cout<<"render"<<endl;
         
-        if(is_error()){
+        if (is_error()) {
             cout<<"Err B2"<<endl;
         }
         
@@ -247,8 +244,8 @@ void RenderModel::render(){
         
 #if 0
         std::cout<<"X "<<endl;
-        for (int i = 0; i<4; ++i){
-            for (int j = 0; j<4; ++j){
+        for (int i = 0; i<4; ++i) {
+            for (int j = 0; j<4; ++j) {
                 std::cout << m_ProjMatrix[i][j] << " ";
           //      std::cout <<   m_ViewMatrix[i][j]<<" ";
             }
@@ -256,14 +253,14 @@ void RenderModel::render(){
         std::cout << std::endl;
 #endif
         
-        if(is_error()){
+        if (is_error()) {
             cout<<"Err B3"<<endl;
         }
         
         
         glm::vec3 lightPos = glm::vec3(0,0,0);
         glm::vec3 dc = glm::vec3(colour[0], colour[1], colour[2]);
-        if(mode==0){
+        if (mode==0) {
             glUniformMatrix4fv(shaderMVP, 1, GL_FALSE, &MVP[0][0]);
             glUniformMatrix4fv(shaderV, 1, GL_FALSE, &m_ViewMatrix[0][0]);
             glUniform3f(shaderDiffuse, dc.x, dc.y, dc.z);
@@ -276,11 +273,11 @@ void RenderModel::render(){
         }
         
        
-        if(is_error()){
+        if (is_error()) {
             cout<<"Err 3"<<endl;
         }
         
-        if(mode==1){
+        if (mode==1) {
             glPolygonMode( GL_FRONT_AND_BACK, GL_LINE );
         } else {
             glPolygonMode( GL_FRONT_AND_BACK, GL_FILL );
@@ -288,7 +285,7 @@ void RenderModel::render(){
     
         glDrawElements(GL_TRIANGLES, m_obj.faces.size()*3, GL_UNSIGNED_INT, 0);
         
-        if(is_error()){
+        if (is_error()) {
             cout<<"Err 343"<<endl;
         }
         
@@ -302,7 +299,7 @@ void RenderModel::render(){
     
     
     
-    void RenderModel::render_pick_detail(PickDataback& pd){ // to see if we selected a certain primitive
+    void RenderModel::render_pick_detail(PickDataback& pd) { // to see if we selected a certain primitive
         
         // this is wrong
         glm::vec3 origin = pd.origin;
@@ -328,7 +325,7 @@ void RenderModel::render(){
                 textures.push_back(uv);
             }
             
-            //		for(int k = 0;k<3;k++){
+            //		for (int k = 0;k<3;k++) {
             //		vertices[k] = convert(vertices[k]);
             //		}
             glm::vec2 barytemp;
@@ -379,7 +376,36 @@ void RenderModel::render(){
 
     }// end of picking function
 
-    /*
+    void RenderModel::to_string(T3D::TTuple<double, 3> tt) {
+        cout << tt[0] << " " << tt[1] << " " << tt[2] << endl;
+    }
+
+    void RenderModel::to_string(vector<int> v) {
+        cout << v[0] << " " << v[1] << " " << v[2] << endl;
+    }
+
+    void RenderModel::to_string(vector<float> v) {
+        cout << v[0] << " " << v[1] << " " << v[2] << endl;
+    }
+
+    T3D::TPoint RenderModel::projection_on_plane(
+            T3D::TPoint plane_point, T3D::TVector plane_normal,
+            T3D::TPoint point_origin, T3D::TVector point_direction) {
+        if (plane_normal[0] == point_direction[0] &&
+            plane_normal[1] == point_direction[1] &&
+            plane_normal[2] == point_direction[2]) throw "No projection!";
+
+        float A = dot(plane_normal, (plane_point - point_origin));
+        float B = dot(plane_normal, point_direction);
+        float t = A / B;
+
+        T3D::TPoint projection = point_origin + point_direction * t;
+
+        if (t > 0) return projection;
+        else if (t == 0) return point_origin; // TODO: remove this?
+        else throw "No projection!";
+    }
+
     bool RenderModel::is_on_right(T3D::TPoint check, T3D::TPoint p1, T3D::TPoint p2, T3D::TVector n) {
         return dot(cross(p1 - p2, check - p2), n) > 0;
     }
@@ -395,35 +421,37 @@ void RenderModel::render(){
     bool RenderModel::is_point_inside(T3D::TPoint p, RenderModel *r) {
         random_device rd;
         mt19937 mt(rd());
-        uniform_real_distribution<double> dist(0, 1);
+        uniform_real_distribution<double> dist(-1, 1);
 
-        //T3D::TVector dir = T3D::TVector(dist(mt), dist(mt), dist(mt));
-        T3D::TVector dir = normalize((T3D::TPoint(0, 0, 0) - p));
+        T3D::TVector dir(dist(mt), dist(mt), dist(mt));
 
         int hits = 0;
 
-        for (int i = 0; i < r->m_obj.faces.size(); ++i) {
+        for (int i = 0; i < r->m_obj.faces.size(); i++) {
             vector<int> face = r->m_obj.faces[i];
 
-            T3D::TPoint poi = r->m_obj.vertex[face[0]]; // point on plane
-            T3D::TVector norm = r->m_obj.normal[i]; // normal of plane
+            T3D::TVector norm = -normalize(cross(
+                (r->m_obj.vertex[face[1]] - r->m_obj.vertex[face[0]]),
+                (r->m_obj.vertex[face[2]] - r->m_obj.vertex[face[0]])
+            )); // normal of plane
 
-            float t = dot((poi - p), norm) / dot(dir, norm);
-            T3D::TPoint projection = p + dir * t;
+            try {
+                T3D::TPoint projection = projection_on_plane(
+                    r->m_obj.vertex[face[0]] * r->scale, norm,
+                    p, dir
+                );
 
-            // TODO: currently doesn't check for non-triangular meshes
-            if (hit_triangle(
-                projection,
-                r->m_obj.vertex[face[0]],
-                r->m_obj.vertex[face[1]],
-                r->m_obj.vertex[face[2]],
-                norm))
-                hits++;
+                if (hit_triangle(
+                        projection,
+                        r->m_obj.vertex[face[0]] * r->scale,
+                        r->m_obj.vertex[face[1]] * r->scale,
+                        r->m_obj.vertex[face[2]] * r->scale,
+                        norm))
+                    hits++;
+            }
+            catch (const char* msg) { }
         }
-
-        cout << hits << endl;
 
         return hits % 2 != 0;
     }
-    */
 }
