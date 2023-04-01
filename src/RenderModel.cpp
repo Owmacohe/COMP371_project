@@ -53,19 +53,16 @@ namespace TAPP {
         
         for (int i=0;i<m_obj.vertex.size();++i) {
             for (int j=0;j<3;++j) {
-                vertices.push_back(m_obj.vertex[i][j] * scale);
-                normals.push_back(m_obj.normal[i][j]);
+                vertices.push_back(m_obj.vertex[i][j] * scale + offset[j]);
+                normals.push_back((flip_normals ? -1 : 1) * m_obj.normal[i][j]);
                // vertices[3*i+j] = m_obj.vertex[i][j];
                // normals[3*i+j] = m_obj.normal[i][j];
             }
 
             if (perform_operation) {
-//                float percentage = i / m_obj.vertex.size();
-//                cout << percentage << endl;
+                bool inside = is_point_inside(m_obj.vertex[i] * scale + offset, operation_model);
 
-                bool inside = is_point_inside(m_obj.vertex[i], model);
-
-                gone.push_back(inside);
+                gone.push_back((inside && remove_inside) || (!inside && !remove_inside));
             }
             else gone.push_back(false);
         }
@@ -376,17 +373,9 @@ void RenderModel::render() {
 
     }// end of picking function
 
-    void RenderModel::to_string(T3D::TTuple<double, 3> tt) {
-        cout << tt[0] << " " << tt[1] << " " << tt[2] << endl;
-    }
-
-    void RenderModel::to_string(vector<int> v) {
-        cout << v[0] << " " << v[1] << " " << v[2] << endl;
-    }
-
-    void RenderModel::to_string(vector<float> v) {
-        cout << v[0] << " " << v[1] << " " << v[2] << endl;
-    }
+    void RenderModel::to_string(T3D::TTuple<double, 3> tt) { cout << tt[0] << " " << tt[1] << " " << tt[2] << endl; }
+    void RenderModel::to_string(vector<int> v) { cout << v[0] << " " << v[1] << " " << v[2] << endl; }
+    void RenderModel::to_string(vector<float> v) { cout << v[0] << " " << v[1] << " " << v[2] << endl; }
 
     T3D::TPoint RenderModel::projection_on_plane(
             T3D::TPoint plane_point, T3D::TVector plane_normal,
@@ -402,7 +391,6 @@ void RenderModel::render() {
         T3D::TPoint projection = point_origin + point_direction * t;
 
         if (t > 0) return projection;
-        else if (t == 0) return point_origin; // TODO: remove this?
         else throw "No projection!";
     }
 
@@ -437,15 +425,15 @@ void RenderModel::render() {
 
             try {
                 T3D::TPoint projection = projection_on_plane(
-                    r->m_obj.vertex[face[0]] * r->scale, norm,
+                    r->m_obj.vertex[face[0]] * r->scale + r->offset, norm,
                     p, dir
                 );
 
                 if (hit_triangle(
                         projection,
-                        r->m_obj.vertex[face[0]] * r->scale,
-                        r->m_obj.vertex[face[1]] * r->scale,
-                        r->m_obj.vertex[face[2]] * r->scale,
+                        r->m_obj.vertex[face[0]] * r->scale + r->offset,
+                        r->m_obj.vertex[face[1]] * r->scale + r->offset,
+                        r->m_obj.vertex[face[2]] * r->scale + r->offset,
                         norm))
                     hits++;
             }

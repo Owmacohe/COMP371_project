@@ -21,14 +21,16 @@ namespace TAPP {
         
     }
         
-        RenderModel(std::string filename, T3D::TTuple<double, 3> c, float s)
-        :RUIObject(), colour(c), scale(s), perform_operation(false) {
+        RenderModel(std::string filename, T3D::TTuple<double, 3> c, float s, T3D::TVector o)
+                : RUIObject(), file_name(filename), colour(c), scale(s), offset(o), perform_operation(false) {
             Load(m_obj, filename.c_str());
         }
 
-        RenderModel(std::string filename, T3D::TTuple<double, 3> c, float s, RenderModel *m, bool inside)
-        :RUIObject(), colour(c), scale(s), model(m), perform_operation(true) {
-            Load(m_obj, filename.c_str());
+        RenderModel(RenderModel *rm1, T3D::TTuple<double, 3> c, RenderModel *rm2, bool inside, bool flip)
+                : RUIObject(), file_name(rm1->file_name),
+                colour(c), scale(rm1->scale), offset(rm1->offset),
+                operation_model(rm2), remove_inside(inside), flip_normals(flip), perform_operation(true) {
+            Load(m_obj, rm1->file_name.c_str());
         }
         
     
@@ -85,12 +87,18 @@ namespace TAPP {
         virtual void render_pick_select(PickDataback& ) ; // to see if we selected this object
         virtual void render_pick_detail(PickDataback& ); // to see if we selected a certain primitive
 
+        string file_name;
+
         float scale;
-        bool invalid;
+        T3D::TVector offset;
         T3D::TTuple<double, 3> colour;
+
+        RenderModel *operation_model;
+
+        bool invalid;
         bool perform_operation;
-        RenderModel *model;
-        std::string primitive;
+        bool remove_inside;
+        bool flip_normals;
 
         void to_string(T3D::TTuple<double, 3>);
         void to_string(vector<int>);
