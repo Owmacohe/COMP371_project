@@ -38,5 +38,5 @@ add_definitions(
 include_directories(/encs/pkg/glm-0.9.9.8/root/include)
 
 aux_source_directory(src SOURCES)
-add_executable(${PROJECT_NAME} ${SOURCES})
+add_executable(${PROJECT_NAME} ${SOURCES} src/Operation.cpp src/Operation.h)
 target_link_libraries(${PROJECT_NAME} ${ALL_LIBS})
