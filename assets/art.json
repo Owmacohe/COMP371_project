@@ -1,0 +1,81 @@
+{
+    "geometry":[
+        {
+            "name":"cube",
+            "filename":"cube_high",
+            "scale":1,
+            "offset":[0, 0, 0],
+            "colour":[1, 0, 0],
+            "show":false
+        },
+        {
+            "name":"sphere1",
+            "filename":"sp",
+            "scale":1,
+            "offset":[1, 0, 0],
+            "colour":[1, 1, 0],
+            "show":false
+        },
+        {
+            "name":"sphere2",
+            "filename":"sp",
+            "scale":1,
+            "offset":[-1, 0, 0],
+            "colour":[1, 1, 0],
+            "show":false
+        },
+        {
+            "name":"teapot1",
+            "filename":"teapot+",
+            "scale":0.4,
+            "offset":[0, 1, 0],
+            "colour":[1, 1, 0],
+            "show":true
+        },
+        {
+            "name":"cylinder",
+            "filename":"cylinder",
+            "scale":0.4,
+            "offset":[0, -1, 0],
+            "colour":[1, 1, 0],
+            "show":false
+        },
+        {
+            "name":"diamond",
+            "filename":"diamond",
+            "scale":0.5,
+            "offset":[0, 0, 0],
+            "colour":[0, 1, 0],
+            "show":true
+        }
+    ],
+    "operations":[
+        {
+            "name":"right_hemisphere",
+            "model1":"sphere1",
+            "model2":"cube",
+            "operation":"-",
+            "colour":[1, 0.5, 0],
+            "save":false,
+            "show":true
+        },
+        {
+            "name":"left_hemisphere",
+            "model1":"sphere2",
+            "model2":"cube",
+            "operation":"-",
+            "colour":[1, 0.5, 0],
+            "save":false,
+            "show":true
+        },
+        {
+            "name":"tube",
+            "model1":"cylinder",
+            "model2":"cube",
+            "operation":"|",
+            "colour":[1, 0, 1],
+            "save":false,
+            "show":true
+        }
+    ]
+}

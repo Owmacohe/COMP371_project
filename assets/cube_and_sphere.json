@@ -24,7 +24,8 @@
             "model2":"sphere",
             "operation":"-",
             "colour":[1, 0.5, 0],
-            "save":true
+            "save":false,
+            "show":true
         }
     ]
 }

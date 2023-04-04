@@ -116,7 +116,7 @@
             "operation":"\\",
             "colour":[0, 0.5, 1],
             "save":true,
-            "show":true
+            "show":false
         }
     ]
 }
