@@ -2,7 +2,7 @@
     "geometry":[
         {
             "name":"cube",
-            "filename":"cube_highest",
+            "filename":"cube_high",
             "scale":1,
             "offset":[0, 0, 0],
             "colour":[1, 0, 0],

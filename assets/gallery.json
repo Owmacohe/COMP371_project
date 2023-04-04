@@ -1,0 +1,122 @@
+{
+    "geometry":[
+        {
+            "name":"cone",
+            "filename":"cone",
+            "scale":1,
+            "offset":[0, 0, 0],
+            "colour":[1, 1, 1],
+            "show":false
+        },
+        {
+            "name":"cube_high",
+            "filename":"cube_high",
+            "scale":1,
+            "offset":[0, 0, 0],
+            "colour":[1, 1, 1],
+            "show":false
+        },
+        {
+            "name":"cube_highest",
+            "filename":"cube_highest",
+            "scale":1,
+            "offset":[0, 0, 0],
+            "colour":[1, 1, 1],
+            "show":false
+        },
+        {
+            "name":"cylinder",
+            "filename":"cylinder",
+            "scale":1,
+            "offset":[0, 0, 0],
+            "colour":[1, 1, 1],
+            "show":false
+        },
+        {
+            "name":"diamond",
+            "filename":"diamond",
+            "scale":1,
+            "offset":[0, 1, 0],
+            "colour":[1, 1, 1],
+            "show":false
+        },
+        {
+            "name":"monkey",
+            "filename":"monkey",
+            "scale":1,
+            "offset":[0, 0, 0],
+            "colour":[1, 1, 1],
+            "show":false
+        },
+        {
+            "name":"pyramid",
+            "filename":"pyramid",
+            "scale":1,
+            "offset":[0, -1.1, 0],
+            "colour":[1, 1, 1],
+            "show":false
+        },
+        {
+            "name":"sphere",
+            "filename":"sp",
+            "scale":1,
+            "offset":[0, 0, 0],
+            "colour":[1, 1, 1],
+            "show":false
+        },
+        {
+            "name":"teapot",
+            "filename":"teapot+",
+            "scale":1,
+            "offset":[0, 0, 0],
+            "colour":[1, 1, 1],
+            "show":false
+        },
+        {
+            "name":"torus",
+            "filename":"torus",
+            "scale":1,
+            "offset":[0, 0, 0],
+            "colour":[1, 1, 1],
+            "show":false
+        }
+    ],
+    "operations":[
+        {
+            "name":"monkey+torus",
+            "model1":"monkey",
+            "model2":"torus",
+            "operation":"+",
+            "colour":[1, 0.5, 1],
+            "save":true,
+            "show":false
+        },
+        {
+            "name":"cube-pyramid",
+            "model1":"cube_highest",
+            "model2":"pyramid",
+            "operation":"-",
+            "colour":[1, 0.5, 1],
+            "save":true,
+            "show":false
+        },
+        {
+            "name":"teapot|cylinder",
+            "model1":"teapot",
+            "model2":"cylinder",
+            "operation":"|",
+            "colour":[0, 0.5, 1],
+            "save":true,
+            "show":false
+        },
+        {
+            "name":"diamond\\sphere",
+            "model1":"diamond",
+            "model2":"sphere",
+            "operation":"\\",
+            "colour":[0, 0.5, 1],
+            "save":true,
+            "show":true
+        }
+    ]
+}

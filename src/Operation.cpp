@@ -12,7 +12,7 @@ void Operation::generate(TAPP::Virtual3DLayer *view) {
     if (operation == "+") union_operation = true;
     else if (operation == "-") subtraction_operation = true;
     else if (operation == "|") intersection_operation = true;
-    else if (operation == "/") difference_operation = true;
+    else if (operation == "\\") difference_operation = true;
 
     if (union_operation) {
         rm1->colour = colour;

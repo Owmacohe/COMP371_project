@@ -62,20 +62,22 @@ vector<Operation*> parse(nlohmann::json j, Virtual3DLayer *view) {
     }
 
     for (auto itr = j["operations"].begin(); itr!= j["operations"].end(); itr++) {
-        RenderModel *rm1 = find_model(models, (*itr)["model1"]);
+        if ((*itr)["show"]) {
+            RenderModel *rm1 = find_model(models, (*itr)["model1"]);
 
-        RenderModel *rm2 = find_model(models, (*itr)["model2"]);
+            RenderModel *rm2 = find_model(models, (*itr)["model2"]);
 
-        Operation *operation = new Operation(
-            (string)(*itr)["name"],
-            rm1,
-            rm2,
-            (*itr)["operation"],
-            T3D::TTuple<double, 3>((*itr)["colour"][0], (*itr)["colour"][1], (*itr)["colour"][2]),
-            (*itr)["save"]
-        );
+            Operation *operation = new Operation(
+                (string)(*itr)["name"],
+                rm1,
+                rm2,
+                (*itr)["operation"],
+                T3D::TTuple<double, 3>((*itr)["colour"][0], (*itr)["colour"][1], (*itr)["colour"][2]),
+                (*itr)["save"]
+            );
 
-        temp.push_back(operation);
+            temp.push_back(operation);
+        }
     }
 
     return temp;
@@ -84,6 +86,11 @@ vector<Operation*> parse(nlohmann::json j, Virtual3DLayer *view) {
 int main(int argc, char* argv[]) {
     int w = 1024;
     int h = 768;
+
+    if (argc != 2) {
+        cout << "Please include the path to a valid JSON!" << endl;
+        return -1;
+    }
     
     std::string name = "Owen Hellum - COMP 371 CSG Project";
     
@@ -97,7 +104,7 @@ int main(int argc, char* argv[]) {
 
     std::ifstream t(argv[1]);
     if (!t) {
-        cout<<"File "<<argv[1]<<" does not exist!"<<endl;
+        cout << "File " << argv[1] << " does not exist!" << endl;
         return -1;
     }
 
