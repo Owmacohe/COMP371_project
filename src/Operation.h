@@ -6,15 +6,18 @@
 
 class Operation {
 public:
-    Operation(TAPP::RenderModel*, TAPP::RenderModel*, string, T3D::TTuple<double, 3>);
+    Operation(string, TAPP::RenderModel*, TAPP::RenderModel*, string, T3D::TTuple<double, 3>, bool);
 
     void generate(TAPP::Virtual3DLayer*);
+    void save_obj();
 private:
     void subtraction(TAPP::Virtual3DLayer*);
     void intersection(TAPP::Virtual3DLayer*);
     void difference(TAPP::Virtual3DLayer*);
 
-    TAPP::RenderModel *rm1, *rm2;
+    string name;
+    bool save;
+    TAPP::RenderModel *rm1, *rm2, *result1, *result2;
     string operation;
     T3D::TTuple<double, 3> colour;
 };

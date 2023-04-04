@@ -1,0 +1,62 @@
+{
+    "geometry":[
+        {
+            "name":"monkey",
+            "filename":"monkey",
+            "scale":1,
+            "offset":[0, 0, 0],
+            "colour":[1, 0, 0],
+            "show":false
+        },
+        {
+            "name":"cube1",
+            "filename":"cube",
+            "scale":0.5,
+            "offset":[0, 0, 0],
+            "colour":[1, 1, 0],
+            "show":false
+        },
+        {
+            "name":"cube2",
+            "filename":"cube_high",
+            "scale":0.5,
+            "offset":[0, 0, 0],
+            "colour":[1, 1, 0],
+            "show":false
+        },
+        {
+            "name":"cube3",
+            "filename":"cube_highest",
+            "scale":0.5,
+            "offset":[0, 0, 0],
+            "colour":[1, 1, 0],
+            "show":false
+        }
+    ],
+    "operations":[
+        {
+            "name":"monkey_subtract_cube_0",
+            "model1":"monkey",
+            "model2":"cube1",
+            "operation":"-",
+            "colour":[1, 0.5, 0],
+            "save":true
+        },
+        {
+            "name":"monkey_subtract_cube_1",
+            "model1":"monkey",
+            "model2":"cube2",
+            "operation":"-",
+            "colour":[1, 0.5, 0],
+            "save":true
+        },
+        {
+            "name":"monkey_subtract_cube_2",
+            "model1":"monkey",
+            "model2":"cube3",
+            "operation":"-",
+            "colour":[1, 0.5, 0],
+            "save":true
+        }
+    ]
+}

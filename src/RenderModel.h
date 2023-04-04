@@ -21,15 +21,15 @@ namespace TAPP {
         
     }
         
-        RenderModel(std::string filename, std::string n, T3D::TTuple<double, 3> c, float s, T3D::TVector o)
-                : RUIObject(), file_name(filename), name(n), colour(c), scale(s), offset(o), perform_operation(false) {
+        RenderModel(std::string filename, std::string n, T3D::TTuple<double, 3> c, float s, T3D::TVector o, int so)
+                : RUIObject(), file_name(filename), name(n), colour(c), scale(s), offset(o), save_offset(so), perform_operation(false) {
             Load(m_obj, filename.c_str());
         }
 
-        RenderModel(std::string n, RenderModel *rm1, T3D::TTuple<double, 3> c, RenderModel *rm2, bool inside, bool flip)
+        RenderModel(std::string n, RenderModel *rm1, T3D::TTuple<double, 3> c, RenderModel *rm2, bool inside, bool flip, int so)
                 : RUIObject(), file_name(rm1->file_name), name(n),
                 colour(c), scale(rm1->scale), offset(rm1->offset),
-                operation_model(rm2), remove_inside(inside), flip_normals(flip), perform_operation(true) {
+                operation_model(rm2), remove_inside(inside), flip_normals(flip), save_offset(so), perform_operation(true) {
             Load(m_obj, rm1->file_name.c_str());
         }
         
@@ -100,6 +100,14 @@ namespace TAPP {
         bool perform_operation;
         bool remove_inside;
         bool flip_normals;
+
+        T3D::TTuple<double, 2> bounds_x = { INT_MIN, INT_MAX };
+        T3D::TTuple<double, 2> bounds_y = { INT_MIN, INT_MAX };
+        T3D::TTuple<double, 2> bounds_z = { INT_MIN, INT_MAX };
+
+        int save_offset;
+        vector<string> vertex_list;
+        vector<string> face_list;
 
         void to_string(T3D::TTuple<double, 3>);
         void to_string(vector<int>);

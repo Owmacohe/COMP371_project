@@ -52,12 +52,20 @@ namespace TAPP {
         cout << endl;
         
         for (int i=0;i<m_obj.vertex.size();++i) {
+            TPoint v = m_obj.vertex[i] * scale + offset;
+
             for (int j=0;j<3;++j) {
-                vertices.push_back(m_obj.vertex[i][j] * scale + offset[j]);
+                vertices.push_back(v[j]);
                 normals.push_back((flip_normals ? -1 : 1) * m_obj.normal[i][j]);
                // vertices[3*i+j] = m_obj.vertex[i][j];
                // normals[3*i+j] = m_obj.normal[i][j];
             }
+
+            vertex_list.push_back("v "
+                + std::to_string(v[0]) + " "
+                + std::to_string(v[1]) + " "
+                + std::to_string(v[2])
+            );
 
             if (perform_operation) {
                 bool inside = is_point_inside(m_obj.vertex[i] * scale + offset, operation_model);
@@ -66,6 +74,9 @@ namespace TAPP {
             }
             else gone.push_back(false);
         }
+
+        cout << bounds_x[0] << endl;
+        cout << bounds_x[1] << endl;
 
         cout << endl;
         
@@ -91,6 +102,18 @@ namespace TAPP {
                     indices.push_back(m_obj.faces[i][k]);
                     //     indices[3*i+k] = m_obj.faces[i][k];
                 }
+
+                string f = "f "
+                    + std::to_string(save_offset + m_obj.faces[i][0] + 1) + " "
+                    + std::to_string(save_offset + m_obj.faces[i][1] + 1) + " "
+                    + std::to_string(save_offset + m_obj.faces[i][2] + 1);
+
+                if (flip_normals) f = "f "
+                    + std::to_string(save_offset + m_obj.faces[i][1] + 1) + " "
+                    + std::to_string(save_offset + m_obj.faces[i][0] + 1) + " "
+                    + std::to_string(save_offset + m_obj.faces[i][2] + 1);
+
+                face_list.push_back(f);
             }
         }
 
@@ -407,6 +430,10 @@ void RenderModel::render() {
     }
 
     bool RenderModel::is_point_inside(T3D::TPoint p, RenderModel *r) {
+        if (p[0] > r->bounds_x[0] || p[0] < r->bounds_x[1] ||
+            p[1] > r->bounds_y[0] || p[1] < r->bounds_y[1] ||
+            p[2] > r->bounds_z[0] || p[2] < r->bounds_z[1]) return false;
+
         random_device rd;
         mt19937 mt(rd());
         uniform_real_distribution<double> dist(-1, 1);
