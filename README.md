@@ -1,3 +1,5 @@
+*(project demo materials can be found in the `demo` folder)*
+
 # Project Report - OpenGL CSG - Owen Hellum
 
 
